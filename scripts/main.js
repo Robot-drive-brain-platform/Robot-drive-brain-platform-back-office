@@ -50,6 +50,12 @@ function RobotBackOffice() {
     this.mediaCapture.addEventListener('change', this.saveImageMessage.bind(this));
 
     this.initFirebase();
+
+    var buttons = document.querySelectorAll('[data-send]');
+    console.log(buttons);
+    for(var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', function(e) {this.sendCommand(e.target.dataset.send);}.bind(this));
+    }
 }
 
 // Sets up shortcuts to Firebase features and initiate firebase auth.

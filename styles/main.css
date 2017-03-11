@@ -25,7 +25,8 @@ main, #messages-card {
   height: calc(100% - 150px);
   padding-bottom: 0;
 }
-#messages-card {
+#messages-card,
+#actions-card {
   margin-top: 15px;
 }
 .mdl-layout__header-row span {
@@ -194,6 +195,11 @@ main, #messages-card {
   color: #0288D1;
 }
 .mdl-button .material-icons {
-  top: -1px;
-  margin-right: 5px;
+  width: 56px;
+  transform: translate(-50%, -50%);
 }
+
+.text-align {
+  text-align: center;
+}
+
