@@ -1,6 +1,6 @@
 {
-  "name": "Friendly Chat",
-  "short_name": "Friendly Chat",
+  "name": "Robot Chat",
+  "short_name": "Robot Chat",
   "start_url": "/index.html",
   "display": "standalone",
   "orientation": "portrait"

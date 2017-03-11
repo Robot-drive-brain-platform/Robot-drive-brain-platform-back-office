@@ -1,6 +1,5 @@
 {
   "projects": {
-    "production": "friendlychat-8cf0d",
     "prod": "robot-drive-brain-platform"
   }
 }
