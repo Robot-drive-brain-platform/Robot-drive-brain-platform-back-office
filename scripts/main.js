@@ -98,6 +98,18 @@ RobotBackOffice.prototype.saveMessage = function (e) {
         });
     }
 };
+
+RobotBackOffice.prototype.sendCommand = function (command) {
+    console.log(command);
+    this.messagesRef.push({
+        name: "command",
+        text: command,
+        photoUrl: '/images/profile_placeholder.png'
+    }).catch(function (error) {
+        console.error('Error sending command to Firebase Database', error);
+    });
+}
+
 // Sets the URL of the given img element with the URL of the image stored in Firebase Storage.
 RobotBackOffice.prototype.setImageUrl = function(imageUri, imgElement) {
     // If the image is a Firebase Storage URI we fetch the URL.
@@ -270,6 +282,9 @@ RobotBackOffice.prototype.displayMessage = function (key, name, text, picUrl, im
 // fields.
 RobotBackOffice.prototype.toggleButton = function () {
     if (this.messageInput.value) {
+        if(this.submitButton.hasAttribute('disabled')) {
+            this.sendCommand("#starting-writing");
+        }
         this.submitButton.removeAttribute('disabled');
     } else {
         this.submitButton.setAttribute('disabled', 'true');
