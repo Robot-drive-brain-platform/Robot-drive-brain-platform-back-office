@@ -299,6 +299,9 @@ RobotBackOffice.prototype.toggleButton = function () {
         }
         this.submitButton.removeAttribute('disabled');
     } else {
+        if(!this.submitButton.hasAttribute('disabled')) {
+            this.sendCommand("#stopped-writing");
+        }
         this.submitButton.setAttribute('disabled', 'true');
     }
 };
