@@ -51,10 +51,16 @@ function RobotBackOffice() {
 
     this.initFirebase();
 
-    var buttons = document.querySelectorAll('[data-send]');
+    var buttons = document.querySelectorAll('button[data-send]');
     console.log(buttons);
     for(var i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener('click', function(e) {this.sendCommand(e.target.dataset.send);}.bind(this));
+        buttons[i].addEventListener('click', function(e) {
+            var element = e.target;
+            if (!('send' in element.dataset))
+                element = element.parentElement;
+            this.sendCommand(element.dataset.send);
+
+        }.bind(this));
     }
 }
 
